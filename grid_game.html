@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Grid Game</title>
+</head>
+<body>
+		<style>
+			.cell_centered {
+			position: fixed;
+    		top: 50%;
+    		left: 50%;
+    		width:100px;
+    		height:100px;
+    		border: 1px solid #ccc;
+    		background-color: #f3f3f3;
+    		text-align: center;
+    		font: bold 36px/32px Helvetica, Verdana, Tahoma;
+    		padding-top: 32px;
+    		box-sizing: border-box;
+    		background-color: white;
+			}
+		</style>
+		<div style="position: fixed; top: 90%; left: 24px; font: normal 16px Helvetica, Verdana, Tahoma; color: grey; padding-top: 20px;" >Чтобы начать заново, нажмите F5</div>
+		<div id="cell_1" class="cell_centered" onClick="reverseNumbers(1);" style="transform: translate(-200px, -200px)" onmouseover="highlightNumbers(1)" onmouseleave="unhighlightNumbers(1)">0</div>
+		<div id="cell_2" class="cell_centered" onClick="reverseNumbers(2);" style="transform: translate(-100px, -200px)" onmouseover="highlightNumbers(2)" onmouseleave="unhighlightNumbers(2)">1</div>
+		<div id="cell_3" class="cell_centered" onClick="reverseNumbers(3);" style="transform: translate(0px, -200px)" onmouseover="highlightNumbers(3)" onmouseleave="unhighlightNumbers(3)">0</div>
+		<div id="cell_4" class="cell_centered" style="transform: translate(100px, -200px)">1</div>
+		
+		<div id="cell_5" class="cell_centered" onClick="reverseNumbers(5);" style="transform: translate(-200px, -100px)" onmouseover="highlightNumbers(5)" onmouseleave="unhighlightNumbers(5)">1</div>
+		<div id="cell_6" class="cell_centered" onClick="reverseNumbers(6);" style="transform: translate(-100px, -100px)" onmouseover="highlightNumbers(6)" onmouseleave="unhighlightNumbers(6)">0</div>
+		<div id="cell_7" class="cell_centered" onClick="reverseNumbers(7);" style="transform: translate(0px, -100px)" onmouseover="highlightNumbers(7)" onmouseleave="unhighlightNumbers(7)">1</div>
+		<div id="cell_8" class="cell_centered"  style="transform: translate(100px, -100px)">0</div>
+
+		<div id="cell_9" class="cell_centered" onClick="reverseNumbers(9);"  style="transform: translate(-200px, 0px)" onmouseover="highlightNumbers(9)" onmouseleave="unhighlightNumbers(9)">0</div>
+		<div id="cell_10" class="cell_centered" onClick="reverseNumbers(10);"  style="transform: translate(-100px, 0px)" onmouseover="highlightNumbers(10)" onmouseleave="unhighlightNumbers(10)">1</div>
+		<div id="cell_11" class="cell_centered" onClick="reverseNumbers(11);"  style="transform: translate(0px, 0px)" onmouseover="highlightNumbers(11)" onmouseleave="unhighlightNumbers(11)">0</div>
+		<div id="cell_12" class="cell_centered" style="transform: translate(100px, 0px)" >1</div>
+		
+		<div id="cell_13" class="cell_centered"   style="transform: translate(-200px, 100px)">1</div>
+		<div id="cell_14" class="cell_centered"  style="transform: translate(-100px, 100px)">0</div>
+		<div id="cell_15" class="cell_centered"  style="transform: translate(0px, 100px)">1</div>
+		<div id="cell_16" class="cell_centered" style="transform: translate(100px, 100px)">0</div>
+
+		<script>
+				function reverseNumbers(cell_id) {
+					console.log('click on '+'cell_'+cell_id);
+					document.getElementById('cell_'+cell_id).innerHTML=1-Number(document.getElementById('cell_'+cell_id).innerHTML);
+					document.getElementById('cell_'+(cell_id+1)).innerHTML=1-Number(document.getElementById('cell_'+(cell_id+1)).innerHTML);
+					document.getElementById('cell_'+(cell_id+5)).innerHTML=1-Number(document.getElementById('cell_'+(cell_id+5)).innerHTML);
+					document.getElementById('cell_'+(cell_id+4)).innerHTML=1-Number(document.getElementById('cell_'+(cell_id+4)).innerHTML);
+				};
+				function highlightNumbers(cell_id) {
+					document.getElementById('cell_'+cell_id).style.backgroundColor = "yellow";
+					document.getElementById('cell_'+(cell_id+1)).style.backgroundColor = "yellow";
+					document.getElementById('cell_'+(cell_id+5)).style.backgroundColor = "yellow";
+					document.getElementById('cell_'+(cell_id+4)).style.backgroundColor = "yellow";
+				};
+				function unhighlightNumbers(cell_id) {
+					document.getElementById('cell_'+cell_id).style.backgroundColor = "white";
+					document.getElementById('cell_'+(cell_id+1)).style.backgroundColor = "white";
+					document.getElementById('cell_'+(cell_id+5)).style.backgroundColor = "white";
+					document.getElementById('cell_'+(cell_id+4)).style.backgroundColor = "white";
+				};
+		</script>
+</body>
+</html>
